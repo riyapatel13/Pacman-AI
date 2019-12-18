@@ -1,6 +1,6 @@
 Team 6 Members:
-- Ziz Cheng
 - Riya Patel
+- Ziz Cheng
 - Charles Sun
 
 Pac-Man Behavior:
@@ -14,9 +14,3 @@ Ghosts Behavior:
 	3. Follows Pac-Man (No preference).
 	4. Choose a random location on the board and path finds to it, but, set the moveCost (gCost) to a location to be the squared distance between the location and the Pac-Man’s location. This means the ghost would prefer to choose a path that leads it closer to Pac-Man.
 Also, when the ghosts are scared they run away to the location furthest away from Pac-Man.
-	
-
-Contributions:
-- Charles: Wrote the A* function and Pac-Man and ghost
-- Ziz: Wrote the original Ghost code, planned ghost
-- Riya: Wrote the new Ghost code, planned ghost
