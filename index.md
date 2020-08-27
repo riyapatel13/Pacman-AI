@@ -16,40 +16,24 @@ After the completion of this project, I have also implemented various other Pacm
 
 These files are not contained in this Github repository, but feel free to reach out for more info on the other implementations.
 
-## Welcome to GitHub Pages
+## Implementation Details
 
-You can use the [editor on GitHub](https://github.com/riyapatel13/Pacman-AI/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### Pac-Man Behavior
+	
+Our Pacman uses the A* algorithm and path-finds to the closest food. During A*, the heuristic cost function is described as follows:
+* Cost of pellet: 1
+* Cost of empty grid: 5
+* Cost of Moore neighbors around ghost: 50
+* Cost of Von Neumann neighbors around ghost: 99
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Note that the cost of Von Neumann neighbors override the cost of Moore neighbors - the square directly in front of a ghost (and not diagonal) will have a cost of 99. These costs ensure that the Pac-Man, in its quest for vengeance, does not run into the ghosts and prioritizes food over empty squares. When a ghost is scared, the heuristics are modified and Pac-Man will path-find to the scared ghost instead of food.
 
-### Markdown
+### Ghosts Behavior
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+We deduced that the optimal strategy for the ghosts was to surround a single pellet and prevent it from being eaten so that Pac-Man could never finish the game. However, once we started writing the code for the ghosts, we realized that the ghosts were not allowed to turn around or stop in place, so those ideas were scrapped. Instead, we used A* and provided 4 different ghost behaviors:
+1. Follows Pac-Man and prefers to approach from behind (By setting the move cost in front of Pac-Man to be higher)
+2. Follows Pac-Man and prefers to approach from ahead (Which allows trapping behavior)
+3. Follows Pac-Man (No preference).
+4. Choose a random location on the board and path finds to it, but, set the moveCost (gCost) to a location to be the squared distance between the location and the Pac-Man’s location. This means the ghost would prefer to choose a path that leads it closer to Pac-Man.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/riyapatel13/Pacman-AI/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+When the ghosts are in scared mode (after Pacman eats a power pellet), they run away to the location furthest away from Pac-Man.
