@@ -4,6 +4,8 @@ As a final project in the Artificial Intelligence course at Stanford Univerity's
 
 After the completion of this project, I have also implemented various other Pacman agents with several approaches, including:
 * Iterative Deepening
+* Multi-agent
+* Alpha-beta pruning
 * Minimax and Expectimax
 * SAT Solver and logic
 * Graph planning
