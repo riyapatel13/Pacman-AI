@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100%" height="100%" src="pacman.gif">
+  <img width="50%" height="50%" src="pacman.gif">
 </p>
 
 ## Project Overview
