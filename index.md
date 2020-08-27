@@ -1,3 +1,5 @@
+![](pacman.gif)
+
 ## Project Overview
 
 As a final project in the Artificial Intelligence course at Stanford Univerity's Precollegiate Studies, my team and I created the most optimal Pacman and ghost agents (after much trial and error). The details of the implementations can be found below. This project was completed in collaboration with Ziz Cheng and Charles Sun.
