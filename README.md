@@ -1,3 +1,7 @@
+# AI Pacman and Ghost Agents
+
+As a final project in the Artificial Intelligence course at Stanford Univerity's Precollegiate Studies, my team and I created the most optimal Pacman and ghost agents (after much trial and error). The details of the implementations can be found below.
+
 Team 6 Members:
 - Riya Patel
 - Ziz Cheng
