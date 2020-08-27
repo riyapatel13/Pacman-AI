@@ -2,16 +2,24 @@
 
 As a final project in the Artificial Intelligence course at Stanford Univerity's Precollegiate Studies, my team and I created the most optimal Pacman and ghost agents (after much trial and error). The details of the implementations can be found below.
 
-Team 6 Members:
-- Riya Patel
-- Ziz Cheng
-- Charles Sun
+Team Members:
+* Riya Patel
+* Ziz Cheng
+* Charles Sun
 
-Pac-Man Behavior:
-	Normally, Pac-Man uses A* and path-finds to the closest food. During A*, the graph (grid) is set so that the cost to move into a food is 1, into an empty grid is 5-ish, the Moore’s Neighbors around ghosts are 50, and the Von Neumann Neighbors around ghosts are 99. This ensures that the Pac-Man, in its quest for vengeance, does not run into the ghost and prioritizes food over empty squares. When a ghost is scared, Pac-Man will path-find to the scared ghost instead of food.
+## Implementation Details
 
+### Pac-Man Behavior
+	
+Our Pacman uses the A* algorithm and path-finds to the closest food. During A*, the heuristic cost function is described as follows:
+* Cost of pellet: 1
+* Cost of empty grid: 5
+* Cost of Moore neighbors around ghost: 50
+* Cost of Von Neumann neighbors around ghost: 99
 
-Ghosts Behavior: 
+Note that the cost of Von Neumann neighbors override the cost of Moore neighbors - the square directly in front of a ghost (and not diagonal) will have a cost of 99. These costs ensure that the Pac-Man, in its quest for vengeance, does not run into the ghosts and prioritizes food over empty squares. When a ghost is scared, the heuristics are modified and Pac-Man will path-find to the scared ghost instead of food.
+
+### Ghosts Behavior
 	The ghosts were originally going to protect a single food so that the Pac-Man can never finish the game. However, once we started writing the code for the ghost, we realized that the ghosts are not allowed to turn around or stop around a place, so those ideas and the ideas were scrapped. Instead, we used A* and provided 4 different ghost behaviors:
 	1. Follows Pac-Man and prefers to approach from behind (By setting the move cost in front of Pac-Man to be higher)
 	2. Follows Pac-Man and prefers to approach from ahead (Which allows trapping behavior)
