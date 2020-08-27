@@ -20,9 +20,11 @@ Our Pacman uses the A* algorithm and path-finds to the closest food. During A*, 
 Note that the cost of Von Neumann neighbors override the cost of Moore neighbors - the square directly in front of a ghost (and not diagonal) will have a cost of 99. These costs ensure that the Pac-Man, in its quest for vengeance, does not run into the ghosts and prioritizes food over empty squares. When a ghost is scared, the heuristics are modified and Pac-Man will path-find to the scared ghost instead of food.
 
 ### Ghosts Behavior
-	The ghosts were originally going to protect a single food so that the Pac-Man can never finish the game. However, once we started writing the code for the ghost, we realized that the ghosts are not allowed to turn around or stop around a place, so those ideas and the ideas were scrapped. Instead, we used A* and provided 4 different ghost behaviors:
-	1. Follows Pac-Man and prefers to approach from behind (By setting the move cost in front of Pac-Man to be higher)
-	2. Follows Pac-Man and prefers to approach from ahead (Which allows trapping behavior)
-	3. Follows Pac-Man (No preference).
-	4. Choose a random location on the board and path finds to it, but, set the moveCost (gCost) to a location to be the squared distance between the location and the Pac-Man’s location. This means the ghost would prefer to choose a path that leads it closer to Pac-Man.
-Also, when the ghosts are scared they run away to the location furthest away from Pac-Man.
+
+We deduced that the optimal strategy for the ghosts was to surround a single pellet and prevent it from being eaten so that Pac-Man could never finish the game. However, once we started writing the code for the ghosts, we realized that the ghosts were not allowed to turn around or stop in place, so those ideas were scrapped. Instead, we used A* and provided 4 different ghost behaviors:
+1. Follows Pac-Man and prefers to approach from behind (By setting the move cost in front of Pac-Man to be higher)
+2. Follows Pac-Man and prefers to approach from ahead (Which allows trapping behavior)
+3. Follows Pac-Man (No preference).
+4. Choose a random location on the board and path finds to it, but, set the moveCost (gCost) to a location to be the squared distance between the location and the Pac-Man’s location. This means the ghost would prefer to choose a path that leads it closer to Pac-Man.
+
+When the ghosts are in scared mode (after Pacman eats a power pellet), they run away to the location furthest away from Pac-Man.
