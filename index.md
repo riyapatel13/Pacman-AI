@@ -20,7 +20,7 @@ After the completion of this project, I have also implemented various other Pacm
 * Bayes' Nets
 * Joint Particle Filter
 
-These files are not contained in this Github repository, but feel free to reach out for more info on the other implementations.
+These files are not contained in this Github repository as they were completed as part of a course (15281 AI: Representation and Problem-Solving), but feel free to reach out for more info on the other implementations.
 
 ## Implementation Details
 
